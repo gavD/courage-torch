@@ -19,7 +19,41 @@ var app = {
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicity call 'app.receivedEvent(...);'
     onDeviceReady: function() {
+        var sfx = new Media("/android_asset/www/sfx/SlapWorkout.mp3",
+            function() {
+                console.log('Success loading sound');
+            },
+            function(err) {
+                console.log('Error loading sound');
+            }
+        );
 
+        function turnOnTorch() {
+            $('#btnOn').hide();
+            $('#btnOff').show();
+            window.plugins.Torch.turnOn(
+                function() {
+                    sfx.play({ numberOfLoops: 10});
+                },
+                function(e) {
+                    console.log( "**** error" ); console.log(e);
+                }
+            );
+        }
+
+        function turnOffTorch() {
+
+            $('#btnOn').show();
+            $('#btnOff').hide();
+            window.plugins.Torch.turnOff(
+                function() {
+                    sfx.stop();
+                },
+                function(e) {
+                    console.log( "**** error" ); console.log(e);
+                }
+            );
+        }
 
         $('#btnHelp').click(function() {
             $('#content').hide();
@@ -32,39 +66,14 @@ var app = {
         });
 
         $('#btnOn').click(function() {
-            $('#btnOn').hide();
-            $('#btnOff').show();
-            window.plugins.Torch.turnOn(
-                function() {
-
-                },
-                function(e) {
-                    console.log( "**** error" ); console.log(e);
-                }
-            );
+            turnOnTorch();
         });
 
         $('#btnOff').click(function() {
-            $('#btnOn').show();
-            $('#btnOff').hide();
-            window.plugins.Torch.turnOff(
-                function() {
-
-                },
-                function(e) {
-                    console.log( "**** error" ); console.log(e);
-                }
-            );
+            turnOffTorch();
         });
 
-        window.plugins.Torch.turnOn(
-            function() {
-
-            },
-            function(e) {
-                console.log( "**** error" ); console.log(e);
-            }
-        );
+        turnOnTorch();
 
         console.log("Device is ready! Let's try this torch out...");
     }
