@@ -67,8 +67,6 @@ var app = {
         );
 
         console.log("Device is ready! Let's try this torch out...");
-
-
     }
 };
 app.initialize();

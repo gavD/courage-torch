@@ -11,6 +11,13 @@ Licensed under the GPLv3 license.
 Technical
 =========
 
+Requirements
+------------
+
+* Android SDK
+* Apache Cordova 2.7
+* PHP (the HTML is dynamically generated)
+
 Keys
 ----
 
