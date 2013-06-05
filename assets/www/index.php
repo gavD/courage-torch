@@ -35,7 +35,7 @@
                 A torch to make you brave in the dark!
             </p>
 
-            <p>By <a href="http://gavd.co.uk">Gavin Davies</a>. Source code is at <a href="https://github.com/gavd/couragetorch">github.com/gavd/couragetorch</a></p>
+            <p>By <a href="http://gavd.co.uk">Gavin Davies</a>. Source code is at <a href="https://github.com/gavd/courage-torch">github.com/gavd/courage-torch</a></p>
 
             <button id="btnHelpRead">OK, got it!</button>
         </div>
